@@ -21,7 +21,7 @@ class Category extends Model
             'status' => ['neq',-1],
             'parent_id' => $parent_id,
         ];
-        $order = ['id' => 'desc'];
+        $order = ['listorder' => 'desc'];
         $data = $this
             ->where($where)
             ->order($order)
