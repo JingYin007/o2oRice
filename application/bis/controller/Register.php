@@ -9,7 +9,7 @@ use \think\Controller;
  */
 class Register extends Controller
 {
-    public function index(){
+    public function index(){ 
         //获取一级城市的数据
         $firstCitys = model('city')->getNormalCitysByParentID();
         $firstCategorys = model('category')->getNormalCategorysByParentID();
