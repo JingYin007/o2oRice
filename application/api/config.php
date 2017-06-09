@@ -7,5 +7,5 @@
  * Time: 16:41
  */
 return [
-    ''
+    'default_return_type' => 'json',
 ];

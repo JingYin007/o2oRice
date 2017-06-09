@@ -25,9 +25,14 @@ class Map extends Controller
     }
     public function send(){
         $to = '930959695@qq.com';
-        $from = '15117972683@163.com';
-        $content = '这都是什么鬼啊啊啊啊！';
+        $title = '你若盛开，清风自来';
+        $content = '这都是什么鬼啊啊啊啊 xxxxxxxxxxxxxxx！';
         $mail = new Email();
-        $mail::send($to,$from,$content);
+        $sendTag = $mail::send($to,$title,$content);
+        if ($sendTag){
+            echo '邮件发送成功';
+        }else{
+            echo '邮件发送失败';
+        }
     }
 }
