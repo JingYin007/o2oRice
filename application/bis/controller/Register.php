@@ -36,6 +36,13 @@ class Register extends Controller
                                 || $lnglat['result']['precise'] != 1){
                 $this->error('无法获取数据，或者匹配的地址不精确');
             }
+            //判断提交的用户是否存在
+            $accountRes = Model('BisAccount')
+                ->get(['user_name' => $data['user_name']]);
+
+            if ($accountRes){
+                $this->error('该用户名已存在，请重新分配');
+            }
             //商户基本信息入库
             $bisData = [
                 'name' => $data['name'],
@@ -61,6 +68,7 @@ class Register extends Controller
             //总店相关信息的检测
             $locationData = [
                 'bis_id' => $bisID,
+                'logo' => config('conf.IMG_SEVER').$data['logo'],
                 'name' => $data['name'],
                 'tel' => $data['tel'],
                 'contact' => $data['contact'],
@@ -85,7 +93,7 @@ class Register extends Controller
             //账户相关的信息检测
             $accountData = [
                 'bis_id' => $bisID,
-                'user_name' => $data['username'],
+                'user_name' => $data['user_name'],
                 'password' => md5($data['password'].$data['code']),
                 'code' => $data['code'],
                 'is_main' => 1,//代表总管理员
