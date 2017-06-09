@@ -11,7 +11,7 @@ class Map
     /**
      * 根据地址来获取经纬度
      * @param $address
-     * @return mixed
+     * @return array
      */
     public static function getLngLat($address){
         //http://api.map.baidu.com/geocoder/v2/?
@@ -29,7 +29,11 @@ class Map
         //1.file_get_content($url)
         //2.curl
         $result = doCurl($url);
-        return $result;
+        if ($result){
+            return json_decode($result,true);
+        }else{
+            return [];
+        }
     }
 
     /**
