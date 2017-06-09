@@ -45,7 +45,7 @@ CREATE TABLE `rice_area`(
 CREATE TABLE `rice_bis`(
     `id` int(11) unsigned NOT NULL auto_increment,
     `name` varchar(50) NOT NULL DEFAULT '',
-    `eamil` varchar(50) NOT NULL DEFAULT '',
+    `email` varchar(50) NOT NULL DEFAULT '',
     `licence_logo` varchar(255) NOT NULL DEFAULT '',
     `logo` varchar(255) NOT NULL DEFAULT '',
     `description` varchar(255) NOT NULL DEFAULT '',
@@ -94,7 +94,7 @@ CREATE TABLE `rice_bis_location`(
     `tel` varchar(20) NOT NULL DEFAULT '',
     `contact` varchar(20) NOT NULL DEFAULT '',
     `xpoint` varchar(20) NOT NULL DEFAULT '',
-    `ypoin` varchar(20) NOT NULL DEFAULT '',
+    `ypoint` varchar(20) NOT NULL DEFAULT '',
     `bis_id` int(11) unsigned NOT NULL DEFAULT 0,
     `open_time` int(11) unsigned NOT NULL DEFAULT 0,
     `content` text NOT NULL,
