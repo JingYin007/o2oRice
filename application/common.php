@@ -8,9 +8,27 @@
 // +----------------------------------------------------------------------
 // | Author: 流年 <liu21st@gmail.com>
 // +----------------------------------------------------------------------
-
+function pagination($obj){
+    if (!$obj){
+        return '';
+    }
+    $str = '<div class="page-tip">'.$obj->render().'</div>';
+    return $str;
+}
 // 应用公共文件
 function status($status){
+    $str = "";
+    if ($status == 1){
+        $str .= "<span class='label label-success radius'>".'正常';
+    }elseif ($status == 0){
+        $str .= "<span class='label label-danger radius'>".'待审';
+    }else{
+        $str .= "<span class='label radius'>".'删除';
+    }
+    $str .= "</span>";
+    return $str;
+}
+function bisStatus($status){
     $str = "";
     if ($status == 1){
         $str .= "<span class='label label-success radius'>".'正常';
