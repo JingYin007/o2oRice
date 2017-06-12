@@ -78,7 +78,7 @@ $(".listorder input").blur(function () {
     },"JSON");
 });
 /*页面 全屏-添加*/
-function o2o_edit(title,url){
+function o2o_f_edit(title,url){
     var index = layer.open({
         type: 2,
         title: title,
