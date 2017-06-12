@@ -7,14 +7,11 @@ namespace app\common\model;
  * Time: 15:37
  */
 use think\Model;
-class Bis extends Model
+class Bis extends BaseModel
 {
-    //时间戳自动配置
-    protected $autoWriteTimestamp = true;
     public function add($data){
-        $data['status'] = 1;
+        $data['status'] = 0;
         $this->save($data);
-        return $this->id; //TODO 知识点
+        return $this->id;
     }
-
 }

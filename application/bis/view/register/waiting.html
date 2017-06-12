@@ -1,11 +1,14 @@
 <!--包含头部文件-->
 {include file="public/header" /}
-<div class="cl pd-5 bg-1 bk-gray mt-20">
-<h1></h1>
-
-<h1>不存在该入驻申请情况</h1>
-
-</div>
+<center>
+    <div class="cl pd-5 bg-1 bk-gray mt-20">
+        {if $detail}
+        <h2>{$detail.status|bisRegister}</h2>
+        {else/}
+        <h2>不存在该入驻申请情况</h2>
+        {/if}
+    </div>
+</center>
 {include file="public/footer" /}
 </body>
 </html>

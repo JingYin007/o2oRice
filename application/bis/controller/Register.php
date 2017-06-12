@@ -16,8 +16,13 @@ class Register extends Controller
         $firstCategorys = model('category')->getNormalCategorysByParentID();
         return $this->fetch('',['city'=>$firstCitys,'category'=>$firstCategorys]);
     }
-    public function waiting(){
-        return $this->fetch();
+    public function waiting($id){
+        if (empty($id)){
+            $this->error('error');
+        }
+        $detail = model('Bis')->get($id);
+        return $this->fetch('',[
+            'detail' => $detail,]);
     }
     public function add(){
         if (!request()->isPost()){
@@ -77,7 +82,7 @@ class Register extends Controller
                 'city_id' => $data['city_id'],
                 'city_path' => empty($data['se_city_id'])?
                     $data['city_id']: $data['city_id'].','.$data['se_city_id'],
-                'address' => $data['address'],
+                'api_address' => $data['address'],
                 'open_time' => $data['open_time'],
                 'content' => empty($data['content'])?'':$data['content'],
 
@@ -104,13 +109,13 @@ class Register extends Controller
             }
             //发送邮件
             $title = 'o2o入驻申请通知';
-            $url = request()->domain().url('bis/register/waiting');
+            $url = request()->domain().url('bis/register/waiting',['id'=>$bisID]);
             $content = "您提交的入驻申请需要等待审核，".
                 "您可以通过点击链接 <a href='".$url."' target='_blank'> 查看链接 </a>查看审核状态";
 
             $mail = new Email();
             $mail::send($data['email'],$title,$content);
-            $this->success('申请成功');
+            $this->success('申请成功',url('register/waiting',['id'=> $bisID]));
         }
     }
 }
