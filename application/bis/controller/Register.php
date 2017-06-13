@@ -54,8 +54,8 @@ class Register extends Controller
                 'city_id' => $data['city_id'],
                 'city_path' => empty($data['se_city_id'])?
                     $data['city_id']: $data['city_id'].','.$data['se_city_id'],
-                'logo' => config('conf.IMG_SEVER').$data['logo'],
-                'licence_logo' => config('conf.IMG_SEVER').$data['licence_logo'],
+                'logo' => $data['logo'],
+                'licence_logo' => $data['licence_logo'],
                 'description' => empty($data['description'])?'':$data['description'],
                 'bank_info' => $data['bank_info'],
                 'bank_user'=> $data['bank_user'],

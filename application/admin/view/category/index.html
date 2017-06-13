@@ -38,7 +38,7 @@
 			</thead>
 			<tbody>
 			{volist name="allCategorys" id="vo"}
-			<tr class="text-c">
+			<tr class="text-c text-c-{$vo.id}">
 				<td><input name="" type="checkbox" value=""></td>
 				<td>{$vo.id}</td>
 				<td>{$vo.name}</td>
@@ -88,10 +88,6 @@
 	function o2o_edit(id) {
 		var toUrl = "{:url('Category/edit')}?id="+id;
 		o2o_s_edit('编辑',toUrl,'',300);
-	}
-	function o2o_del(id) {
-		var toUrl = SCOPE.delete_url+'?id='+id;
-		o2o_s_del(toUrl);
 	}
 	function o2o_status(id,status) {
 		status = status == 1?0:1;

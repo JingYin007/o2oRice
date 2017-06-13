@@ -91,27 +91,41 @@ function o2o_f_edit(title,url){
 function o2o_s_edit(title,url,w,h){
     layer_show(title,url,w,h);
 }
-/*-删除*/
-function o2o_s_del(url){
-
-    layer.confirm('确认要删除吗？',function(index){
-        window.location.href = url;
-    });
+function o2o_del(id) {
+    o2o_s_status(id,-1,1);
 }
-function o2o_s_status(id,status) {
 
+function o2o_s_status(id,status,remove) {
+    var remove_tag = $(".text-c-"+id);
     var postData = {
         'id':id,
         'status':status,
     };
     var toUrl = SCOPE.status_url;
-    //抛送http
-    $.post(toUrl,postData,function (result) {
-        if (result.status == 1){
-            //layer.msg(result.message);
-            location.reload();
-        }else {
-            layer.msg(result.message);
-        }
-    },"JSON");
+    layer.open({
+        type:0,
+        title:false,
+        btn:['确定','取消'],
+        icon:3,
+        closeBtn:2,
+        content:"确定要执行此操作吗？",
+        scrollbar:true,
+        yes:function () {
+            //抛送http
+            $.post(toUrl,postData,function (result) {
+                if (result.status == 1){
+                    layer.msg(result.message);
+                    if(remove == 1){
+                        remove_tag.remove();
+                    }else {
+                        location.reload();
+                    }
+                }else {
+                    layer.msg(result.message);
+                }
+            },"JSON");
+        },
+    });
+
+
 }

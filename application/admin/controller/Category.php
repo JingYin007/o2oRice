@@ -110,7 +110,7 @@ class Category extends Controller
         $data = ['status' => $status];
         $tag =$this->obj->save($data,$where);
         if ($tag){
-            return showMsg(1,'success');
+            return showMsg(1,'操作成功');
         }else{
             return showMsg(0,'操作失败');
         }
