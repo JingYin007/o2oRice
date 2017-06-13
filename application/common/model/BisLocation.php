@@ -9,7 +9,11 @@ namespace app\common\model;
 use think\Model;
 class BisLocation extends BaseModel
 {
-    //时间戳自动配置
-    protected $autoWriteTimestamp = true;
+   public function getLocationsByBisID($bis_id){
+       $res = $this->where('bis_id = '.$bis_id)
+           ->order('id desc')
+           ->paginate();
+       return $res;
+   }
 
 }

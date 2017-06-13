@@ -73,7 +73,7 @@ class Register extends Controller
             //总店相关信息的检测
             $locationData = [
                 'bis_id' => $bisID,
-                'logo' => config('conf.IMG_SEVER').$data['logo'],
+                'logo' => $data['logo'],
                 'name' => $data['name'],
                 'tel' => $data['tel'],
                 'contact' => $data['contact'],

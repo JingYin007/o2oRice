@@ -24,7 +24,6 @@ class Login extends Controller
             if($ret->password != md5($data['password'].$ret->code)) {
                 $this->error('密码不正确');
             }
-
             model('BisAccount')->updateById(['last_login_time'=>time()], $ret->id);
             // 保存用户信息  bis是作用域
             session('bisAccount', $ret, 'bis');
