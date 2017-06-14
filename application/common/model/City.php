@@ -44,4 +44,21 @@ class City extends Model
             ->paginate(12);
         return $res;
     }
+    public function getNormalCitys() {
+        $data = [
+            'status' => 1,
+            'parent_id' => ['gt', 0],
+        ];
+
+        $order = ['id'=>'desc'];
+
+        return $this
+            ->where($data)
+            ->order($order)
+            ->select();
+
+    }
+
+
+
 }

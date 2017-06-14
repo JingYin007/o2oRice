@@ -40,7 +40,18 @@ function bisStatus($status){
     $str .= "</span>";
     return $str;
 }
-
+function dealStatus($status){
+    $str = "";
+    if ($status == 1){
+        $str .= "<span class='label label-success radius'>".'正常';
+    }elseif ($status == 0){
+        $str .= "<span class='label label-danger radius'>".'待审';
+    }else{
+        $str .= "<span class='label radius'>".'删除';
+    }
+    $str .= "</span>";
+    return $str;
+}
 /**
  * 公用的方法  进行信息的提示
  * @param $status

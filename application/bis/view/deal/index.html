@@ -3,7 +3,14 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 商户入驻申请 </nav>
 <div class="page-container">
-<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"> <a class="btn btn-primary radius"  href=""><i class="Hui-iconfont">&#xe600;</i> 添加团购商品</a></span> <span class="r"></span> </div>
+<div class="cl pd-5 bg-1 bk-gray mt-20">
+	<span class="l">
+		<a class="btn btn-primary radius"  href="{:url('deal/add')}">
+			<i class="Hui-iconfont">&#xe600;</i> 添加团购商品
+		</a>
+	</span>
+	<span class="r"></span>
+</div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-hover table-sort">
 			<thead>
@@ -17,19 +24,37 @@
 				</tr>
 			</thead>
 			<tbody>
-				
-				<tr class="text-c">
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td class="td-status"></td>
-					<td class="td-manage"><a style="text-decoration:none" class="ml-5" onClick="" href="javascript:;" title="查看"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+				{volist name="resList" id="vo"}
+				<tr class="text-c text-c-{$vo.id}">
+					<td>{$vo.id}</td>
+					<td>{$vo.name}</td>
+					<td>{$vo.create_time}</td>
+					<td>{$vo.start_time|date="Y-m-d H:m",###}—{$vo.end_time|date="Y-m-d H:m",###}</td>
+					<td class="td-status">{$vo.status|dealStatus}</td>
+					<td class="td-manage">
+						<a style="text-decoration:none" class="ml-5" onClick="o2o_edit('{$vo.id}')" href="javascript:;" title="查看">
+							<i class="Hui-iconfont">&#xe6df;</i>
+						</a>
+						<a style="text-decoration:none" class="ml-5" onClick="o2o_del('{$vo.id}')" href="javascript:;" title="下架">
+							<i class="Hui-iconfont">&#xe6e2;</i>
+						</a>
+					</td>
 				</tr>
-				
+				{/volist}
 			</tbody>
 		</table>
 	</div>
 </div>
 <!--包含头部文件-->
 {include file="public/footer" /}
+<script>
+	var SCOPE = {
+		'listorder_url':"{:url('deal/listorder')}",
+		'delete_url':"{:url('deal/delete')}",
+		'status_url':"{:url('deal/status')}",
+	};
+	function o2o_edit(id) {
+		var toUrl = "{:url('deal/add')}?id="+id;
+		o2o_f_edit('团购商品详情',toUrl);
+	}
+</script>
