@@ -2,6 +2,20 @@
 namespace app\admin\controller;
 use think\Controller;
 class Base extends  Controller {
+    //排序逻辑
+    public function listorder($id,$listorder){
+        $data = ['listorder'=>$listorder];
+        $where = ['id'=>intval($id)];
+        // 获取控制器
+        $model = request()->controller();
+        $tag = model($model)->save($data,$where);
+        $data['referer'] = $_SERVER['HTTP_REFERER'];
+        if ($tag){
+            return showMsg(1,'success',$data);
+        }else{
+            return showMsg(0,'排序受阻');
+        }
+    }
     /**
      * 修改状态
      * @param $id

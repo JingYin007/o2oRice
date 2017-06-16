@@ -87,18 +87,7 @@ class Category extends Base
         }
     }
 
-    //排序逻辑
-    public function listorder($id,$listorder){
-        $data = ['listorder'=>$listorder];
-        $where = ['id'=>intval($id)];
-        $tag = $this->obj->save($data,$where);
-        $data['referer'] = $_SERVER['HTTP_REFERER'];
-        if ($tag){
-            return showMsg(1,'success',$data);
-        }else{
-            return showMsg(0,'排序受阻');
-        }
-    }
+
 
     public function delete($id){
         $data = ['status' => -1];
