@@ -176,7 +176,7 @@ CREATE TABLE `rice_user`(
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 #推荐位表
-CREATE TABLE `rice_feature`(
+CREATE TABLE `rice_featured`(
     `id` int(11) unsigned NOT NULL auto_increment,
     `type` tinyint(1) NOT NULL DEFAULT 0,
     `title` varchar(30) NOT NULL DEFAULT '',

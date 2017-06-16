@@ -11,7 +11,7 @@ namespace app\admin\controller;
 
 use think\Controller;
 
-class Category extends Controller
+class Category extends Base
 {
     private $obj;
     public function _initialize()
@@ -100,21 +100,6 @@ class Category extends Controller
         }
     }
 
-    /**
-     * 修改状态
-     * @param $id
-     * @param $status
-     */
-    public function status($id,$status=0){
-        $where = ['id'=>intval($id)];
-        $data = ['status' => $status];
-        $tag =$this->obj->save($data,$where);
-        if ($tag){
-            return showMsg(1,'操作成功');
-        }else{
-            return showMsg(0,'操作失败');
-        }
-    }
     public function delete($id){
         $data = ['status' => -1];
         $tag =$this->obj->save($data,['id' => intval($id)]);
