@@ -14,4 +14,5 @@ class User extends Controller
         return $this->fetch();
 
     }
+
 }
