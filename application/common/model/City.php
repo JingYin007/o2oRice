@@ -51,11 +51,11 @@ class City extends Model
         ];
 
         $order = ['id'=>'desc'];
-
-        return $this
+        $res = $this
             ->where($data)
             ->order($order)
             ->select();
+        return $res;
 
     }
 
