@@ -52,7 +52,7 @@ class Base extends Controller
     }
 
     /**
-     * 获取首页推荐当中中的商品分类数据
+     * 获取首页推荐当中的商品分类数据
      */
     public function getRecommendCats() {
         $parentIds = $sedcatArr = $recomCats = [];

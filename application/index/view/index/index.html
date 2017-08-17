@@ -9,8 +9,9 @@
                     <a href="#" class="slide-prev"><i class="slide-arrow-left"></i></a>
                     <a href="#" class="slide-next"><i class="slide-arrow-right"></i></a>
                     <ul class="slideshow">
-                        <li><a href="" class="item-large"><img class="ad-pic" src="/upload/20170219/datu.jpg" /></a></li>
-                        <li><a href="" class="item-large"><img class="ad-pic" src="/upload/20170219/datu.jpg" /></a></li>
+                        {volist name="homeBigAD" id="vo"}
+                        <li><a href="{$vo.url}" target="_blank" class="item-large"><img class="ad-pic" src="{$vo.image}" /></a></li>
+                        {/volist}
                     </ul>
                 </div>
                 <div class="list-container">
@@ -21,6 +22,9 @@
         <div class="right-sidebar">
             <div class="right-ad">
                 <ul class="slidepic">
+                    {volist name="rightAD" id="vo"}
+                   <li><a><img src="{$vo.image}" width="259px" /></a></li>
+                    {/volist}
                     <li><a><img src="/upload/20170219/ads.jpg" width="259px" /></a></li>
                 </ul>
             </div>

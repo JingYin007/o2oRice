@@ -112,3 +112,14 @@ function getSeCityName($path){
     $city = model('city')->get($city_id);
     return $city->name;
 }
+function countLocation($ids) {
+    if(!$ids) {
+        return 1;
+    }
+
+    if(preg_match('/,/', $ids)) {
+        $arr = explode(',', $ids);
+        return count($arr);
+    }
+
+}
