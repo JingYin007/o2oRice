@@ -21,7 +21,7 @@ class Index extends Base
             'rightAD' => $rightAD,
             'datas' => $datas,
             'meishicates' => $meishicates,
-            'controller' => 'ms',
+            'controller' => 'index',
         ]);
     }
 }

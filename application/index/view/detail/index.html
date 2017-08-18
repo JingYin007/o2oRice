@@ -101,7 +101,7 @@
                   {if condition="$flag eq 1"}
                   <a  class="btn-buy btn-buy-qrnew j-btn-buy btn-hit" style="background: #C0C0C0;border-bottom:#C0C0C0; ">立即抢购</a>
                   {else /}
-                  <a href="" class="btn-buy btn-buy-qrnew j-btn-buy btn-hit">立即抢购</a>
+                  <a class="o2o_click btn-buy btn-buy-qrnew j-btn-buy btn-hit">立即抢购</a>
                   {/if}
 
                 </div>
@@ -154,47 +154,6 @@
                             <p class="branch-address">北京市朝阳区西坝河东里83号商业用楼（国际展览中心对面）</p>
                             <p class="branch-tel">01064655007</p>
                             <p class="map-travel">
-
-                            </p>
-                          </li>
-                          <li class="branch branch-close">
-                            <a href="//www.nuomi.com/shop/133957" target="_blank" class="branch-name">好伦哥(西坝河店)</a>
-                            <p class="branch-address">北京市朝阳区西坝河东里83号商业用楼（国际展览中心对面）</p>
-                            <p class="branch-tel">01064655007</p>
-                            <p class="map-travel">
-
-                            </p>
-                          </li>
-                          <li class="branch branch-close">
-                            <a href="//www.nuomi.com/shop/133957" target="_blank" class="branch-name">好伦哥(西坝河店)</a>
-                            <p class="branch-address">北京市朝阳区西坝河东里83号商业用楼（国际展览中心对面）</p>
-                            <p class="branch-tel">01064655007</p>
-                            <p class="map-travel">
-
-                            </p>
-                          </li>
-                          <li class="branch branch-close">
-                            <a href="//www.nuomi.com/shop/133957" target="_blank" class="branch-name">好伦哥(西坝河店)</a>
-                            <p class="branch-address">北京市朝阳区西坝河东里83号商业用楼（国际展览中心对面）</p>
-                            <p class="branch-tel">01064655007</p>
-                            <p class="map-travel">
-
-                            </p>
-                          </li>
-                          <li class="branch branch-close">
-                            <a href="//www.nuomi.com/shop/133957" target="_blank" class="branch-name">好伦哥(西坝河店)</a>
-                            <p class="branch-address">北京市朝阳区西坝河东里83号商业用楼（国际展览中心对面）</p>
-                            <p class="branch-tel">01064655007</p>
-                            <p class="map-travel">
-
-                            </p>
-                          </li>
-                          <li class="branch branch-close">
-                            <a href="//www.nuomi.com/shop/133957" target="_blank" class="branch-name">好伦哥(西坝河店)</a>
-                            <p class="branch-address">北京市朝阳区西坝河东里83号商业用楼（国际展览中心对面）</p>
-                            <p class="branch-tel">01064655007</p>
-                            <p class="map-travel">
-
                             </p>
                           </li>
                         </ul>
@@ -278,6 +237,14 @@
   $(".branch").mouseenter(function(){
     $(".branch").removeClass("branch-open").addClass("branch-close");
     $(this).removeClass("branch-close").addClass("branch-open");
+  });
+
+  $(".o2o_click").click(function () {
+    var count = $(".buycount-ctrl input").val();
+    //var url = "{:url('order/confirm',['id'=>$deal.id,'count'=>2])}";
+    var dd = "{$deal.id}";
+    var url = "{:url('order/confirm')}?id="+dd+"&count="+count;
+    window.open(url);
   });
 </script>
 </body>

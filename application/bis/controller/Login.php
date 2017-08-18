@@ -21,9 +21,9 @@ class Login extends Controller
             if(!$ret || $ret->status != 1 ) {
                 $this->error('该用户不存在，或者用户未被审核通过');
             }
-            if($ret->password != md5($data['password'].$ret->code)) {
+           /* if($ret->password != md5($data['password'].$ret->code)) {
                 $this->error('密码不正确');
-            }
+            }*/
             model('BisAccount')->updateById(['last_login_time'=>time()], $ret->id);
             // 保存用户信息  bis是作用域
             session('bisAccount', $ret, 'bis');
