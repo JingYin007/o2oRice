@@ -33,7 +33,7 @@ class WeixinPay extends Controller
         }else{
             $url = $result["code_url"];
         }
-        return '<img alt="扫码支付" src="/weixin/example/qrcode.php?data= "'.$url.' style="width:150px;height:150px;"/>
+        return '<img alt="扫码支付" src="/weixin/example/qrcode.php?data= "'.urlencode($url).'" style="width:150px;height:150px;"/>
 	';
     }
 }
